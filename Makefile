@@ -60,6 +60,9 @@ $(TESTS): %: %.o
 	$(VECHO) "  LD\t$@\n"
 	$(Q)$(CC) -o $@ $^ $(LDFLAGS)
 
+merge: merge-sort.c
+	gcc -I./include -I./private -o merge $^
+
 clean:
 	$(VECHO) "  Cleaning...\n"
 	$(Q)$(RM) $(TESTS) $(TESTS_OK) $(TESTS:=.o) $(TESTS:=.o.d)
